@@ -16,6 +16,9 @@ var inputData = [
   "Monero",
 ];
 
+var lowerCasedInputData = inputData.map((element) => element.toLowerCase());
+// console.log(lowerCasedInputData);
+
 var findPhraseInArray = function (array, phrase) {
   isArrayLength15(array);
   return isPhraseInArray(array, phrase);
@@ -33,7 +36,27 @@ var isPhraseInArray = function (array, phrase) {
   );
 };
 
-console.log(findPhraseInArray(inputData, "COIN"));
+const filteredArray = isPhraseInArray(inputData, "coin");
+
+const isIndexAvailable = (filteredArray) => {
+  let array = [];
+  for (i = 0; i < filteredArray.length; i++) {
+    array += lowerCasedInputData.indexOf(filteredArray[i].toLowerCase());
+  }
+  return array.split("");
+};
+
+const arrayWithIndexes = isIndexAvailable(filteredArray);
+
+const splitArrays = (arrayWithIndexes, filteredArray) => {
+  for (i = 0; i < filteredArray.length; i++) {
+    console.log([...arrayWithIndexes[i], filteredArray[i]]);
+  }
+};
+
+console.log(splitArrays(arrayWithIndexes, filteredArray));
+
+// console.log(findPhraseInArray(inputData, "COIN"));
 
 // przykładowe działanie:
 var result = findPhraseInArray(inputData, "tut");
