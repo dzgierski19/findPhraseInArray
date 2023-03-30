@@ -18,14 +18,23 @@ var inputData = [
 
 var findPhraseInArray = function (array, phrase) {
   isArrayLength15(array);
+  return isPhraseInArray(array, phrase);
   // return
 };
-array.filter(function (element, index, array) {});
 var isArrayLength15 = function (input) {
   if (input.length !== 15) {
     throw new Error("Please provide array with 15 elements");
   }
 };
+var isPhraseInArray = function (array, phrase) {
+  const phraseLowerCased = phrase.toLowerCase();
+  return array.filter((element) =>
+    element.toLowerCase().includes(phraseLowerCased)
+  );
+};
+
+console.log(findPhraseInArray(inputData, "COIN"));
+
 // przykładowe działanie:
 var result = findPhraseInArray(inputData, "tut");
 // result === [ [2, 'tutaj'], [5, 'TUTAJ'] ]
