@@ -1,4 +1,4 @@
-const inputData = [
+var inputData = [
   "Bitcoin",
   "Ethereum",
   "Litecoin",
@@ -16,21 +16,16 @@ const inputData = [
   "Monero",
 ];
 
-console.log(inputData.length);
-
-const findPhraseInArray = (array, phrase) => {
+var findPhraseInArray = function (array, phrase) {
   isArrayLength15(array);
   // return
 };
-
-array.filter((element, index, array) => {});
-
-const isArrayLength15 = (input) => {
+array.filter(function (element, index, array) {});
+var isArrayLength15 = function (input) {
   if (input.length !== 15) {
     throw new Error("Please provide array with 15 elements");
   }
 };
-
 // przykładowe działanie:
-const result = findPhraseInArray(inputData, "tut");
+var result = findPhraseInArray(inputData, "tut");
 // result === [ [2, 'tutaj'], [5, 'TUTAJ'] ]
