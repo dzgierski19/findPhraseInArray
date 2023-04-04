@@ -1,4 +1,4 @@
-const inputData = [
+const inputData: string[] = [
   "Bitcoin",
   "Ethereum",
   "Litecoin",
@@ -16,40 +16,25 @@ const inputData = [
   "Monero",
 ];
 
-console.log(inputData.length);
-
-const findPhraseInArray = (array, phrase) => {
-  isArrayLength15(array);
-  return;
-  // return
-};
-
-const isArrayLength15 = (input) => {
+const isInputLength15 = (input: string[]) => {
   if (input.length !== 15) {
-    throw new Error("Please provide array with 15 elements");
+    throw new Error("Please provide input with 15 elements");
   }
 };
 
-const isPhraseInArray = (input, phrase) => {
-  return input.includes(phrase);
+const groupedArray = (array: string[], phrase: string): [string, number][] => {
+  isInputLength15(array);
+  return array.reduce(
+    (acc: [string, number][], element: string, index: number) => {
+      if (element.toLowerCase().includes(phrase.toLowerCase())) {
+        acc.push([element, index]);
+      }
+      return acc;
+    },
+    []
+  );
 };
 
-console.log(array.filter(isPhraseInArray(inputData,"coin"));
+const result1 = groupedArray(inputData, "coin");
 
-array.filter((element) => {
-  return element.includes("coin");
-});
-
-const isPhraseInArray = (input, phrase) => {
-     if (input.includes (phrase)){
-        return input
-     }
-}
-
-console.log (inputData.filter())
-
-console.log ()
-
-// przykładowe działanie:
-const result = findPhraseInArray(inputData, "tut");
-// result === [ [2, 'tutaj'], [5, 'TUTAJ'] ]
+console.log(result1);
