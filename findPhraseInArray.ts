@@ -1,9 +1,40 @@
-const inputData = ["stwórz", "sobie", "tutaj", "więcej", "wyrazów", "TUTAJ"];
+const inputData: string[] = [
+  "Bitcoin",
+  "Ethereum",
+  "Litecoin",
+  "Solana",
+  "Cardano",
+  "Polkadot",
+  "Dogecoin",
+  "Tron",
+  "EOS",
+  "Uniswap",
+  "Avalanche",
+  "Cosmos",
+  "Polygon",
+  "Chainlink",
+  "Monero",
+];
 
-const findPhraseInArray = (array, phrase) => {
-  // return
+const isInputLength15 = (input: string[]) => {
+  if (input.length !== 15) {
+    throw new Error("Please provide input with 15 elements");
+  }
 };
 
-// przykładowe działanie:
-const result = findPhraseInArray(inputData, "tut");
-// result === [ [2, 'tutaj'], [5, 'TUTAJ'] ]
+const groupedArray = (array: string[], phrase: string): [string, number][] => {
+  isInputLength15(array);
+  return array.reduce(
+    (acc: [string, number][], element: string, index: number) => {
+      if (element.toLowerCase().includes(phrase.toLowerCase())) {
+        acc.push([element, index]);
+      }
+      return acc;
+    },
+    []
+  );
+};
+
+const result1 = groupedArray(inputData, "coin");
+
+console.log(result1);
