@@ -31,6 +31,7 @@ describe("findPhraseInArray testing", () => {
       expect(lastElementOfResult).toEqual(["Dogecoin", 6]);
     });
   });
+
   describe("it returns error when", () => {
     it("- inputData doesn't have 15 elements", () => {
       const inputData = ["a", "b"];
