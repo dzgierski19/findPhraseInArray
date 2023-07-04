@@ -54,6 +54,3 @@ describe("findPhraseInArray testing", () => {
     });
   });
 });
-
-//dopisać it z pełnym rozwiązaniem
-//Dopisać rozwiązanie z emptyArray
